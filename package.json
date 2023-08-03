@@ -1,0 +1,24 @@
+{
+  "name": "multimedia-html-cast",
+  "version": "1.0.0",
+  "description": "Use your smart tv web browser to view (cast) local multimedia files from your PC in a html web page served locally (LAN). Useful when other cast methods are not available.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertlisaru/multimedia-html-cast.git"
+  },
+  "keywords": [
+    "multimedia",
+    "html",
+    "cast"
+  ],
+  "author": "Robert Lisaru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertlisaru/multimedia-html-cast/issues"
+  },
+  "homepage": "https://github.com/robertlisaru/multimedia-html-cast#readme"
+}
