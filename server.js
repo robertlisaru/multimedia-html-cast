@@ -1,14 +1,18 @@
-const http = require('http');
-
-const hostname = '0.0.0.0';
+const express = require('express');
+const path = require('path');
+const app = express();
 const port = 8080;
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World');
+pathArgument = process.argv.at(2);
+app.use('/movies-folder', express.static(path.join(__dirname, pathArgument)));
+app.use(express.static(path.join(__dirname, '/dist')));
+
+const options = { root: path.join(__dirname, '/dist') };
+
+app.get('/', (req, res) => {
+    res.sendFile('index.html', options);
 });
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
 });
