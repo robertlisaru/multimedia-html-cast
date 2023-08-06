@@ -1,3 +1,16 @@
 .main {
     background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#content {
+    margin-top: 15%;
+}
+
+.directory {
+    list-style-type: none;
+    margin-left: 20px;
 }

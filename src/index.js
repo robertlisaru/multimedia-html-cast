@@ -1,12 +1,29 @@
 import './index.css';
-var movieFiles = require('./movie-files.json');
 
-var firstMovie = movieFiles[3];
-//document.getElementById("video0").children.item(0).src = firstMovie;
-var firstMovieWithoutExtension = firstMovie.substring(0, firstMovie.lastIndexOf('.')) || firstMovie;
-var firstSubtitle = firstMovieWithoutExtension + ".vtt";
-//document.getElementById("video0").children.item(1).src = firstSubtitle;
-console.log("Updated video src.");
-console.log(firstMovie);
-document.getElementById("videoDiv").innerHTML =
-    ("<video width='640' height='480' controls><source src='" + firstMovie + "' type = 'video/mp4' ><track label='English' src='" + firstSubtitle + "' kind='subtitles' srclang='en' default /></video>");
+const elementFromHtml = (html) => {
+    const template = document.createElement("template");
+    template.innerHTML = html.trim();
+    return template.content.firstElementChild;
+};
+
+const displayChild = (child) => {
+    return `
+        <li class="child">
+            ${child.name}
+        </li>
+    `;
+};
+
+const expandDirectory = (directory) => {
+    return `
+        <ul class="directory">
+            ${directory.children.map(displayChild).join("")}
+        </ul>    
+    `;
+};
+
+const movieFolder = require('./movie-files.json');
+
+const appTitle = movieFolder.name;
+document.getElementById("title").textContent = appTitle;
+document.getElementById("content").appendChild(elementFromHtml(expandDirectory(movieFolder)));
