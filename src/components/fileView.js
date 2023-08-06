@@ -1,12 +1,14 @@
-import './../styles/fileView.css';
-
 const playableExtensions = [".mkv", ".jpg", ".jpeg"];
 
 const FileView = ({ file, play }) => {
 
     const isPlayable = playableExtensions.includes(file.extension);
 
-    return <li
+    const style = {
+        color: isPlayable ? "white" : "grey"
+    };
+
+    return <li style={style}
         onClick={isPlayable ? (() => { play(file); }) : null}
     >
         {file.name}

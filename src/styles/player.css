@@ -1,9 +1,0 @@
-.player {
-    display: flex;
-    position: fixed;
-    top: auto;
-    left: auto;
-    width: 640px;
-    height: 480px;
-    background-color: red;
-}

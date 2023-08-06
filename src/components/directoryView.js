@@ -1,13 +1,14 @@
-import './../styles/directoryView.css';
 import FileView from './fileView';
 const DirectoryView = ({ directory, toggleExpand, playFile, expandedDirectories }) => {
 
     const isExpanded = expandedDirectories.includes(directory.path);
 
+    const style = { marginLeft: "20px" };
+
     return <li><div><p onClick={() => toggleExpand(directory.path)}>
         {directory.name}
     </p>
-        {isExpanded && <ul className="directoryView">
+        {isExpanded && <ul style={style}>
             {directory.children.map((child) => {
                 if (child.type === "directory") {
                     return <DirectoryView
@@ -26,8 +27,7 @@ const DirectoryView = ({ directory, toggleExpand, playFile, expandedDirectories 
                 }
             })}
         </ul>}
-    </div></li>;
-
+    </div></li >;
 };
 
 export default DirectoryView;
