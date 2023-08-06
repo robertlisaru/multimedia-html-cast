@@ -11,6 +11,7 @@ const displayChild = (child) => {
         <li class="child">
             ${child.name}
         </li>
+        <li>${child.type === "directory" ? expandDirectory(child) : ""}</li>
     `;
 };
 
