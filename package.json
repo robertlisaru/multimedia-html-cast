@@ -11,8 +11,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "webpack --mode=development --no-devtool --config webpack.config.js",
-    "watch": "webpack -w --mode=development --no-devtool --config webpack.config.js"
+    "build": "webpack --mode=development --config webpack.config.js",
+    "watch": "webpack -w --mode=development --config webpack.config.js"
   },
   "repository": {
     "type": "git",
