@@ -11,10 +11,11 @@ const Player = ({ file, closePlayer }) => {
         <video
             key={mediaPath}
             controls
+            autoPlay
             width="100%"
             height="100%">
             <source src={mediaPath}></source>
-            <track src={subtitlePath}></track>
+            <track src={subtitlePath} kind="subtitles" default></track>
         </video>
     </div >;
 
