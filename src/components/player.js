@@ -15,7 +15,12 @@ const Player = ({ file, closePlayer }) => {
             width="100%"
             height="100%">
             <source src={mediaPath}></source>
-            <track src={subtitlePath} kind="subtitles" default></track>
+            <track src={subtitlePath}
+                kind="subtitles"
+                label="Subtitle found"
+                default>
+
+            </track>
         </video>
     </div >;
 
