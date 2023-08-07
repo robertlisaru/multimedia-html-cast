@@ -1,7 +1,8 @@
 
 const Player = ({ file, closePlayer }) => {
 
-    const slicedFilePath = file.path.slice(file.path.indexOf("/", 3));
+    const normalizedPath = file.path.replace(/[\\/]+/g, '/');
+    const slicedFilePath = normalizedPath.slice(normalizedPath.indexOf("/", 3));
     const mediaPath = "/media" + slicedFilePath;
     const subtitlePath = mediaPath.slice(0, mediaPath.lastIndexOf(".")) + ".vtt";
 
