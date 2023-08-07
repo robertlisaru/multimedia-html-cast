@@ -4,7 +4,7 @@ import Player from './components/player.js';
 
 import { createRoot } from 'react-dom/client';
 import { StrictMode, useState } from 'react';
-import movieDirectory from './movie-files.json';
+import mediaDirectory from './media.json';
 
 const App = () => {
     const [openFile, setOpenFile] = useState(null);
@@ -25,7 +25,7 @@ const App = () => {
             <div className="directoryExplorer">
                 <ul>
                     <DirectoryView
-                        directory={movieDirectory}
+                        directory={mediaDirectory}
                         toggleExpand={toggleExpand}
                         playFile={setOpenFile}
                         expandedDirectories={expandedDirectories}

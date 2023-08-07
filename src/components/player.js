@@ -2,8 +2,11 @@ const Player = ({ file, closePlayer }) => {
 
     return <div
         className="player"
-        onClick={() => { closePlayer(); }}>
-        {file.path}
+    >
+        <video controls width="100%" height="100%">
+            <source src={file.path}></source>
+
+        </video>
     </div >;
 
 };
