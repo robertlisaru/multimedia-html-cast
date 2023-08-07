@@ -14,7 +14,7 @@ body {
 
 .content {
     display: flex;
-    margin: 5%;
+    padding: 5%;
 }
 
 ul {
