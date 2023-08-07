@@ -7,8 +7,8 @@ import { StrictMode, useState } from 'react';
 import mediaDirectory from './media.json';
 
 const App = () => {
-    const [openFile, setOpenFile] = useState(null);
-    function closePlayer() { setOpenFile(null); };
+    const [playingFile, setPlayingFile] = useState(null);
+    function closePlayer() { setPlayingFile(null); };
     const [expandedDirectories, setExpandedDirectories] = useState([]);
     function toggleExpand(directoryPath) {
         if (expandedDirectories.includes(directoryPath)) {
@@ -28,12 +28,13 @@ const App = () => {
                     <DirectoryView
                         directory={mediaDirectory}
                         toggleExpand={toggleExpand}
-                        playFile={setOpenFile}
+                        playFile={setPlayingFile}
                         expandedDirectories={expandedDirectories}
+                        playingFile={playingFile}
                     ></DirectoryView>
                 </ul>
             </div>
-            {openFile && <Player file={openFile} closePlayer={closePlayer}></Player>}
+            {playingFile && <Player file={playingFile} closePlayer={closePlayer}></Player>}
         </div>);
 };
 

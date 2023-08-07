@@ -1,14 +1,11 @@
-const playableExtensions = [".mkv", ".jpg", ".jpeg"];
+const FileView = ({ file, play, playingFile }) => {
 
-const FileView = ({ file, play }) => {
-
-    const isPlayable = playableExtensions.includes(file.extension);
-
-    const className = isPlayable ? "fileName playableFile" : "fileName unknownFile";
+    const isPlaying = playingFile && (file.path === playingFile.path);
+    const className = isPlaying ? "playingFile" : "fileName";
 
     return <li
         className={className}
-        onClick={isPlayable ? (() => { play(file); }) : null}
+        onClick={(() => { play(file); })}
     >
         {file.name}
     </li>;

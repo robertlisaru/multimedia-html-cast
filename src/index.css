@@ -34,18 +34,18 @@ li {
     margin-left: 15px;
 }
 
+.playingFile {
+    font-size: 14px;
+    color: red;
+}
+
 .fileName {
     font-size: 14px;
 }
 
-.playableFile:hover {
+.fileName:hover {
     cursor: pointer;
     color: palegreen;
-}
-
-.unknownFile {
-    color: grey;
-    cursor: default;
 }
 
 .directoryExplorer {
