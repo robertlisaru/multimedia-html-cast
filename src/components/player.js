@@ -7,7 +7,11 @@ const Player = ({ file, closePlayer }) => {
     return <div
         className="player"
     >
-        <video controls width="100%" height="100%">
+        <video
+            key={mediaPath}
+            controls
+            width="100%"
+            height="100%">
             <source src={mediaPath}></source>
 
         </video>
