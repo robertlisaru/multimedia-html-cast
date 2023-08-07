@@ -19,6 +19,7 @@ const App = () => {
             setExpandedDirectories([...expandedDirectories, directoryPath]);
         }
     }
+    document.getElementById("appTitle").textContent = mediaDirectory.name;
 
     return (
         <div className="content">

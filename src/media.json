@@ -1,0 +1,154 @@
+{
+  "path": "./../Inspector George Gently/",
+  "name": "Inspector George Gently",
+  "children": [
+    {
+      "path": "../Inspector George Gently/Season 6",
+      "name": "Season 6",
+      "children": [
+        {
+          "path": "../Inspector George Gently/Season 6/S06E03 - Gently with Honour.mkv",
+          "name": "S06E03 - Gently with Honour.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 6/S06E04 - Gently Going Under.mkv",
+          "name": "S06E04 - Gently Going Under.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 6/S06E04 - Gently Going Under.srt",
+          "name": "S06E04 - Gently Going Under.srt",
+          "type": "file",
+          "extension": ".srt"
+        }
+      ],
+      "type": "directory"
+    },
+    {
+      "path": "../Inspector George Gently/Season 7",
+      "name": "Season 7",
+      "children": [
+        {
+          "path": "../Inspector George Gently/Season 7/S07E01 - Gently with the Women.mkv",
+          "name": "S07E01 - Gently with the Women.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E01 - Gently with the Women.srt",
+          "name": "S07E01 - Gently with the Women.srt",
+          "type": "file",
+          "extension": ".srt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E02 - Breathe In the Air.mkv",
+          "name": "S07E02 - Breathe In the Air.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E02 - Breathe In the Air.srt",
+          "name": "S07E02 - Breathe In the Air.srt",
+          "type": "file",
+          "extension": ".srt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E02 - Breathe In the Air.vtt",
+          "name": "S07E02 - Breathe In the Air.vtt",
+          "type": "file",
+          "extension": ".vtt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E03 - Gently Among Friends.mkv",
+          "name": "S07E03 - Gently Among Friends.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E03 - Gently Among Friends.srt",
+          "name": "S07E03 - Gently Among Friends.srt",
+          "type": "file",
+          "extension": ".srt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E03 - Gently Among Friends.vtt",
+          "name": "S07E03 - Gently Among Friends.vtt",
+          "type": "file",
+          "extension": ".vtt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E04 - Son of a Gun.mkv",
+          "name": "S07E04 - Son of a Gun.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E04 - Son of a Gun.srt",
+          "name": "S07E04 - Son of a Gun.srt",
+          "type": "file",
+          "extension": ".srt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 7/S07E04 - Son of a Gun.vtt",
+          "name": "S07E04 - Son of a Gun.vtt",
+          "type": "file",
+          "extension": ".vtt"
+        }
+      ],
+      "type": "directory"
+    },
+    {
+      "path": "../Inspector George Gently/Season 8",
+      "name": "Season 8",
+      "children": [
+        {
+          "path": "../Inspector George Gently/Season 8/S08E01 - Gently Liberated.mkv",
+          "name": "S08E01 - Gently Liberated.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 8/S08E01 - Gently Liberated.srt",
+          "name": "S08E01 - Gently Liberated.srt",
+          "type": "file",
+          "extension": ".srt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 8/S08E01 - Gently Liberated.vtt",
+          "name": "S08E01 - Gently Liberated.vtt",
+          "type": "file",
+          "extension": ".vtt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 8/S08E02 - Gently and the New Age.mkv",
+          "name": "S08E02 - Gently and the New Age.mkv",
+          "type": "file",
+          "extension": ".mkv"
+        },
+        {
+          "path": "../Inspector George Gently/Season 8/S08E02 - Gently and the New Age.srt",
+          "name": "S08E02 - Gently and the New Age.srt",
+          "type": "file",
+          "extension": ".srt"
+        },
+        {
+          "path": "../Inspector George Gently/Season 8/S08E02 - Gently and the New Age.vtt",
+          "name": "S08E02 - Gently and the New Age.vtt",
+          "type": "file",
+          "extension": ".vtt"
+        }
+      ],
+      "type": "directory"
+    },
+    {
+      "path": "../Inspector George Gently/~uTorrentPartFile_1D8B643B44.dat",
+      "name": "~uTorrentPartFile_1D8B643B44.dat",
+      "type": "file",
+      "extension": ".dat"
+    }
+  ],
+  "type": "directory"
+}

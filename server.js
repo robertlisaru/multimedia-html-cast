@@ -5,7 +5,7 @@ const port = 8080;
 
 pathArgument = process.argv.at(2);
 console.log("Starting server using " + pathArgument);
-app.use('/movies-folder', express.static(path.join(__dirname, pathArgument)));
+app.use("/media", express.static(path.join(__dirname, pathArgument)));
 app.use(express.static(path.join(__dirname, '/dist')));
 
 const options = { root: path.join(__dirname, '/dist') };
