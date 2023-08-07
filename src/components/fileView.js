@@ -4,11 +4,10 @@ const FileView = ({ file, play }) => {
 
     const isPlayable = playableExtensions.includes(file.extension);
 
-    const style = {
-        color: isPlayable ? "white" : "grey"
-    };
+    const className = isPlayable ? "fileName playableFile" : "fileName unknownFile";
 
-    return <li style={style}
+    return <li
+        className={className}
         onClick={isPlayable ? (() => { play(file); }) : null}
     >
         {file.name}

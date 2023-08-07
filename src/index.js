@@ -21,7 +21,7 @@ const App = () => {
     }
 
     return (
-        <div>
+        <div className="content">
             <ul>
                 <DirectoryView
                     directory={movieDirectory}

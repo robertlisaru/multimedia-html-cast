@@ -3,12 +3,13 @@ const DirectoryView = ({ directory, toggleExpand, playFile, expandedDirectories 
 
     const isExpanded = expandedDirectories.includes(directory.path);
 
-    const style = { marginLeft: "20px" };
-
-    return <li><div><p onClick={() => toggleExpand(directory.path)}>
-        {directory.name}
-    </p>
-        {isExpanded && <ul style={style}>
+    return <li><div><span
+        className="directoryName"
+        onClick={() => toggleExpand(directory.path)}>
+        {directory.name + " /"}
+    </span>
+        {isExpanded && <ul
+            className="childList">
             {directory.children.map((child) => {
                 if (child.type === "directory") {
                     return <DirectoryView
