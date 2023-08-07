@@ -22,14 +22,16 @@ const App = () => {
 
     return (
         <div className="content">
-            <ul>
-                <DirectoryView
-                    directory={movieDirectory}
-                    toggleExpand={toggleExpand}
-                    playFile={setOpenFile}
-                    expandedDirectories={expandedDirectories}
-                ></DirectoryView>
-            </ul>
+            <div className="directoryExplorer">
+                <ul>
+                    <DirectoryView
+                        directory={movieDirectory}
+                        toggleExpand={toggleExpand}
+                        playFile={setOpenFile}
+                        expandedDirectories={expandedDirectories}
+                    ></DirectoryView>
+                </ul>
+            </div>
             {openFile && <Player file={openFile} closePlayer={closePlayer}></Player>}
         </div>);
 };
