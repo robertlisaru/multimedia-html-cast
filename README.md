@@ -1,5 +1,6 @@
 # multimedia-html-cast
 Use your smart tv web browser to view (cast) local multimedia files from your PC in a html web page served locally (LAN). Useful when other cast methods are not available.
+
 ## how to deploy and use
 1. compile the app by running the `build` script, which uses `webpack` to minify and bundle the app into the output `dist` folder
 ```console
@@ -28,3 +29,9 @@ npm run watch
 - then copy some small test video files into the `src/res/Test video folder 1` which you'll use to test the app during development; these will be bundled to the `dist` folder by `webpack`;
 - after that the script inside `scan-media.sh` will generate the `media.json` file with the contents of the `dist` folder;
 - lastly, to run the app start the http server by running `npm start`
+
+![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/ceb4121a-e656-4e74-813f-448d7374cf56)
+![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/9a629ecb-2727-4477-a9b8-3c94ddf21887)
+![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/6a17fde1-da43-4fc8-9b10-f15eae9c5dc2)
+![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/feed2f86-8c9c-49f5-8f3e-f21dd8c02f32)
+![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/97bf1b91-8209-4d96-9870-61e233436966)
