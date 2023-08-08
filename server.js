@@ -3,9 +3,9 @@ const path = require('path');
 const app = express();
 const port = 8080;
 
-app.use(express.static(path.join(__dirname, './../Inspector George Gently')));
+app.use(express.static(path.join(__dirname, './dist')));
 
-const options = { root: path.join(__dirname, './../Inspector George Gently') };
+const options = { root: path.join(__dirname, './dist') };
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', options);

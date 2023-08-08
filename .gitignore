@@ -130,3 +130,6 @@ dist
 .pnp.*
 src/movie-files.json
 .fuse*
+src/res/Test videos folder 1/*
+src/res/Test videos folder 2/*
+src/media.json

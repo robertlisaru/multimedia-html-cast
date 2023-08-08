@@ -12,7 +12,8 @@ const Player = ({ file, closePlayer }) => {
             controls
             autoPlay
             width="100%"
-            height="100%">
+            height="100%"
+            onEnded={() => { console.log("Video ended"); }}>
             <source src={normalizedPath}></source>
             <track src={subtitlePath}
                 kind="subtitles"
