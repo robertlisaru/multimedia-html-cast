@@ -19,3 +19,12 @@ npx directory-tree --path './' --attributes type,extension --pretty -o ./media.j
 ![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/e42a200d-d640-4a05-b12c-c688912a54f6)
 
 6. browse the folders and click the movie you want to watch; a subtitle will be loaded if it has the same name as the movie file next to it, and it's `.vtt` format (you can use online converters to go from `.srt` to a `.vtt` file)
+
+## development
+- for fast development you need to start `webpack` in `watch` mode, so it continuously watches code changes and rebuilds on the fly
+```console
+npm run watch
+```
+- then copy some small test video files into the `src/res/Test video folder 1` which you'll use to test the app during development; these will be bundled to the `dist` folder by `webpack`;
+- after that the script inside `scan-media.sh` will generate the `media.json` file with the contents of the `dist` folder;
+- lastly, to run the app start the http server by running `npm start`
