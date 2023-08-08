@@ -37,8 +37,6 @@ const App = () => {
         };
     }
 
-    document.getElementById("appTitle").textContent = mediaDirectory.name;
-
     return (
         <div className="content">
             <div className="directoryExplorer">
