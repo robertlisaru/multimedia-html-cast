@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
@@ -14,6 +15,11 @@ const config = {
         new HtmlWebpackPlugin({
             template: 'src/index-template.html',
             inject: "body"
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                "src/media.json"
+            ]
         })
     ],
     module: {
