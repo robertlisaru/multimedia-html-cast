@@ -8,12 +8,12 @@ import { StrictMode, useEffect, useState } from 'react';
 const App = () => {
     const [mediaDirectory, setMediaDirectory] = useState({
         "path": "./",
-        "name": "Movies",
+        "name": "loading...",
         "children": [],
         "type": "directory"
     });
     const [playingFile, setPlayingFile] = useState(null);
-    const [expandedDirectories, setExpandedDirectories] = useState([]);
+    const [expandedDirectories, setExpandedDirectories] = useState(["./"]);
 
     useEffect(() => {
         fetch('./media.json').then((response) => {
