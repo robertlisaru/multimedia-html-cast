@@ -3,13 +3,25 @@ import DirectoryView from './components/directoryView.js';
 import Player from './components/player.js';
 
 import { createRoot } from 'react-dom/client';
-import { StrictMode, useState } from 'react';
-import mediaDirectory from './media.json';
+import { StrictMode, useEffect, useState } from 'react';
 
 const App = () => {
+    const [mediaDirectory, setMediaDirectory] = useState({
+        "path": "./",
+        "name": "Movies",
+        "children": [],
+        "type": "directory"
+    });
     const [playingFile, setPlayingFile] = useState(null);
-    function closePlayer() { setPlayingFile(null); };
     const [expandedDirectories, setExpandedDirectories] = useState([]);
+
+    useEffect(() => {
+        fetch('./media.json').then((response) => {
+            response.json().then(setMediaDirectory);
+        });
+    }, []);
+
+    function closePlayer() { setPlayingFile(null); };
 
     function toggleExpand(directoryPath) {
         if (expandedDirectories.includes(directoryPath)) {
