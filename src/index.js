@@ -10,15 +10,21 @@ const App = () => {
     const [playingFile, setPlayingFile] = useState(null);
     function closePlayer() { setPlayingFile(null); };
     const [expandedDirectories, setExpandedDirectories] = useState([]);
+
     function toggleExpand(directoryPath) {
         if (expandedDirectories.includes(directoryPath)) {
-            setExpandedDirectories(expandedDirectories.filter((value) => {
-                return (value !== directoryPath);
-            }));
+            setExpandedDirectories((_expandedDirectories) => {
+                return _expandedDirectories.filter((value) => {
+                    return (value !== directoryPath);
+                });
+            });
         } else {
-            setExpandedDirectories([...expandedDirectories, directoryPath]);
-        }
+            setExpandedDirectories((_expandedDirectories) => {
+                return [..._expandedDirectories, directoryPath];
+            });
+        };
     }
+
     document.getElementById("appTitle").textContent = mediaDirectory.name;
 
     return (
