@@ -1,12 +1,16 @@
 const playableExtensions = [".mkv", ".mp4"];
 
-const FileView = ({ file, play, playingFile }) => {
+const FileClass = { NORMAL: "fileName", WATCHED: "watchedFile", PLAYING: "playingFile" };
+
+const FileView = ({ file, play, playingFile, watchedFiles }) => {
     const isPlayable = playableExtensions.includes(file.extension);
     const isPlaying = playingFile && (file.path === playingFile.path);
-    const className = isPlaying ? "playingFile" : "fileName";
+    const isWatched = watchedFiles.includes(file.path);
+
+    var fileClass = isPlaying ? FileClass.PLAYING : (isWatched ? FileClass.WATCHED : FileClass.NORMAL);
 
     return isPlayable && <li
-        className={className}
+        className={fileClass}
         onClick={(() => { play(file); })}
     >
         {file.name}

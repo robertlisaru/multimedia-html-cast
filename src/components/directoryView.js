@@ -1,5 +1,11 @@
 import FileView from './fileView';
-const DirectoryView = ({ directory, toggleExpand, playFile, expandedDirectories, playingFile }) => {
+const DirectoryView = ({
+    directory,
+    toggleExpand,
+    playFile,
+    expandedDirectories,
+    playingFile,
+    watchedFiles }) => {
 
     const isExpanded = expandedDirectories.includes(directory.path);
 
@@ -19,14 +25,16 @@ const DirectoryView = ({ directory, toggleExpand, playFile, expandedDirectories,
                         playFile={playFile}
                         expandedDirectories={expandedDirectories}
                         playingFile={playingFile}
+                        watchedFiles={watchedFiles}
                     ></DirectoryView>;
                 } else {
                     return <FileView
                         key={child.path}
                         file={child}
                         play={playFile}
-                        playingFile={playingFile}>
-                    </FileView>;
+                        playingFile={playingFile}
+                        watchedFiles={watchedFiles}
+                    ></FileView>;
                 }
             })}
         </ul>}

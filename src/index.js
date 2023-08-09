@@ -14,12 +14,20 @@ const App = () => {
     });
     const [playingFile, setPlayingFile] = useState(null);
     const [expandedDirectories, setExpandedDirectories] = useState(["./"]);
+    const [watchedFiles, setWatchedFiles] = useState(() => {
+        const storedItem = localStorage.getItem("WATCHED_FILES");
+        return (storedItem ? JSON.parse(storedItem) : []);
+    });
 
     useEffect(() => {
         fetch('./media.json').then((response) => {
             response.json().then(setMediaDirectory);
         });
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem("WATCHED_FILES", JSON.stringify(watchedFiles));
+    }, [watchedFiles]);
 
     function closePlayer() { setPlayingFile(null); };
 
@@ -37,6 +45,15 @@ const App = () => {
         };
     }
 
+    function setWatchedFile(file) {
+        if (!watchedFiles.includes(file.path)) {
+            setWatchedFiles((_watchedFiles) => {
+                return [..._watchedFiles, file.path];
+            });
+        }
+
+    }
+
     return (
         <div className="content">
             <div className="directoryExplorer">
@@ -47,10 +64,14 @@ const App = () => {
                         playFile={setPlayingFile}
                         expandedDirectories={expandedDirectories}
                         playingFile={playingFile}
+                        watchedFiles={watchedFiles}
                     ></DirectoryView>
                 </ul>
             </div>
-            {playingFile && <Player file={playingFile} closePlayer={closePlayer}></Player>}
+            {playingFile && <Player
+                file={playingFile}
+                closePlayer={closePlayer}
+                setWatchedFile={setWatchedFile}></Player>}
         </div>);
 };
 

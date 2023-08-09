@@ -43,7 +43,17 @@ li {
     font-size: 14px;
 }
 
+.watchedFile {
+    font-size: 14px;
+    color: grey;
+}
+
 .fileName:hover {
+    cursor: pointer;
+    color: palegreen;
+}
+
+.watchedFile:hover {
     cursor: pointer;
     color: palegreen;
 }
