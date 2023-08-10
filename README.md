@@ -12,13 +12,18 @@ npx directory-tree --path './' --attributes type,extension --pretty -o ./media.j
 ```
 3. copy the content of the `dist` folder into your `movies` folder; now, the inside of your  `movies` folder should look similar to this:
    
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/3d5971ed-4b89-4885-840c-23ff5f619912)
+```bash
+/movie1/
+/movie2/
+/birthday.mp4
+/bundle.4584c30722f167131c81.js
+/index.html
+/media.json
+/1340d3d0883286c39143.jpg
+```
 
 4. your `movies` folder is now ready to be served; start your favourite `http` web server and use the `movies` folder as `root`
-5. on your smart tv, open the web browser and type the local address of the machine hosting the `movies`; you should see something like this:
-   
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/e42a200d-d640-4a05-b12c-c688912a54f6)
-
+5. on your smart tv, open the web browser and type the local address of the machine hosting the `movies`; you should see your movie files on the left
 6. browse the folders and click the movie you want to watch; a subtitle will be loaded if it has the same name as the movie file next to it, and it's `.vtt` format (you can use online converters to go from `.srt` to a `.vtt` file)
 
 ## development
@@ -31,7 +36,13 @@ npm run watch
 - lastly, to run the app start the http server by running `npm start`
 
 ![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/ceb4121a-e656-4e74-813f-448d7374cf56)
+
 ![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/9a629ecb-2727-4477-a9b8-3c94ddf21887)
+
 ![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/6a17fde1-da43-4fc8-9b10-f15eae9c5dc2)
+
 ![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/feed2f86-8c9c-49f5-8f3e-f21dd8c02f32)
+
 ![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/97bf1b91-8209-4d96-9870-61e233436966)
+
+
