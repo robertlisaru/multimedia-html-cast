@@ -13,7 +13,10 @@ const Player = ({ file, closePlayer, setWatchedFile }) => {
             autoPlay
             width="100%"
             height="100%"
-            onEnded={() => { setWatchedFile(file); }}>
+            onEnded={() => {
+                setWatchedFile(file);
+                closePlayer();
+            }}>
             <source src={normalizedPath}></source>
             <track src={subtitlePath}
                 kind="subtitles"
