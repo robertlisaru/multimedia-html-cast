@@ -1,6 +1,6 @@
 
-const Player = ({ file, closePlayer, setWatchedFile, showResumeDialog }) => {
-
+const Player = (props) => {
+    const { file, closePlayer, setWatchedFile, showResumeDialog } = props;
     const normalizedPath = file.path.replace(/[\\/]+/g, '/');
     const subtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
 
@@ -38,6 +38,7 @@ const Player = ({ file, closePlayer, setWatchedFile, showResumeDialog }) => {
 
             </track>
         </video>
+        {props.children}
     </div >;
 };
 

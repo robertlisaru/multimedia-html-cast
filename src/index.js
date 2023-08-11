@@ -82,12 +82,16 @@ const App = () => {
                 file={playingFile}
                 closePlayer={closePlayer}
                 setWatchedFile={setWatchedFile}
-                showResumeDialog={showResumeDialog}></Player>}
-            {resumeDialogData && <ResumeDialog
-                target={resumeDialogData.target}
-                resumeTime={resumeDialogData.resumeTime}
-                close={closeResumeDialog}
-            ></ResumeDialog>}
+                showResumeDialog={showResumeDialog}>
+
+                {resumeDialogData && <ResumeDialog
+                    target={resumeDialogData.target}
+                    resumeTime={resumeDialogData.resumeTime}
+                    close={closeResumeDialog}
+                ></ResumeDialog>}
+
+            </Player>}
+
         </div>);
 };
 

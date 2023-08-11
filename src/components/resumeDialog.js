@@ -7,7 +7,7 @@ const ResumeDialog = ({ target, resumeTime, close }) => {
     return <div
         className="resumeDialog">
         <label className="resumeLabel">
-            {"Resume from " + secondsToHHMMSS(resumeTime)}
+            {"Resume from " + secondsToHHMMSS(resumeTime) + " ?"}
         </label>
         <button onClick={() => {
             target.currentTime = resumeTime;
