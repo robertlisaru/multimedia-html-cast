@@ -84,7 +84,6 @@ const App = () => {
                 setWatchedFile={setWatchedFile}
                 showResumeDialog={showResumeDialog}></Player>}
             {resumeDialogData && <ResumeDialog
-                isOpen={resumeDialogData != null}
                 target={resumeDialogData.target}
                 resumeTime={resumeDialogData.resumeTime}
                 close={closeResumeDialog}

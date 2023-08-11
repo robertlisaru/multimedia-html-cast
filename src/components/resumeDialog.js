@@ -1,24 +1,14 @@
-import { useRef, useEffect } from 'react';
 
 function secondsToHHMMSS(seconds) {
     return new Date(seconds * 1000).toISOString().slice(11, 19);
 }
 
-const ResumeDialog = ({ isOpen, target, resumeTime, close }) => {
-    const dialogRef = useRef();
-
-    useEffect(() => {
-        if (isOpen) {
-            dialogRef.current.showModal();
-        } else {
-            dialogRef.current.close();
-        }
-    }, [isOpen]);
-
-    return <dialog
-        ref={dialogRef}
+const ResumeDialog = ({ target, resumeTime, close }) => {
+    return <div
         className="resumeDialog">
-        <label className="resumeLabel">{"Resume from " + secondsToHHMMSS(resumeTime)}</label>
+        <label className="resumeLabel">
+            {"Resume from " + secondsToHHMMSS(resumeTime)}
+        </label>
         <button onClick={() => {
             target.currentTime = resumeTime;
             target.play();
@@ -28,7 +18,7 @@ const ResumeDialog = ({ isOpen, target, resumeTime, close }) => {
             target.play();
             close();
         }}>NO</button>
-    </dialog >;
+    </div >;
 };
 
 export default ResumeDialog;

@@ -87,10 +87,6 @@ li {
     border-style: solid;
 }
 
-.resumeDialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.60);
-}
-
 .resumeLabel {
     width: 100%;
     flex-basis: 100;
@@ -99,7 +95,14 @@ li {
 }
 
 .resumeDialog {
+    background: rgba(0, 0, 0, 0.60);
+    position: fixed;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    padding: 10px;
 }
