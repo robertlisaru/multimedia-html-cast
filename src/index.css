@@ -86,3 +86,20 @@ li {
     border-color: black;
     border-style: solid;
 }
+
+.resumeDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+.resumeLabel {
+    width: 100%;
+    flex-basis: 100;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.resumeDialog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

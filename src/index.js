@@ -1,6 +1,7 @@
 import './index.css';
 import DirectoryView from './components/directoryView.js';
 import Player from './components/player.js';
+import ResumeDialog from './components/resumeDialog.js';
 
 import { createRoot } from 'react-dom/client';
 import { StrictMode, useEffect, useState } from 'react';
@@ -18,6 +19,7 @@ const App = () => {
         const storedItem = localStorage.getItem("WATCHED_FILES");
         return (storedItem ? JSON.parse(storedItem) : []);
     });
+    const [resumeDialogData, setResumeDialogData] = useState(null);
 
     useEffect(() => {
         fetch('./media.json').then((response) => {
@@ -54,6 +56,14 @@ const App = () => {
 
     }
 
+    function showResumeDialog(target, resumeTime) {
+        setResumeDialogData({ target: target, resumeTime: resumeTime });
+    }
+
+    function closeResumeDialog() {
+        setResumeDialogData(null);
+    }
+
     return (
         <div className="content">
             <div className="directoryExplorer">
@@ -71,7 +81,14 @@ const App = () => {
             {playingFile && <Player
                 file={playingFile}
                 closePlayer={closePlayer}
-                setWatchedFile={setWatchedFile}></Player>}
+                setWatchedFile={setWatchedFile}
+                showResumeDialog={showResumeDialog}></Player>}
+            {resumeDialogData && <ResumeDialog
+                isOpen={resumeDialogData != null}
+                target={resumeDialogData.target}
+                resumeTime={resumeDialogData.resumeTime}
+                close={closeResumeDialog}
+            ></ResumeDialog>}
         </div>);
 };
 
