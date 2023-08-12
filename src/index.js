@@ -56,13 +56,15 @@ const App = () => {
 
     }
 
-    function showResumeDialog(target, resumeTime) {
-        setResumeDialogData({ target: target, resumeTime: resumeTime });
+    function showResumeDialog(filePath, target, resumeTime) {
+        setResumeDialogData({ filePath: filePath, target: target, resumeTime: resumeTime });
     }
 
     function closeResumeDialog() {
         setResumeDialogData(null);
     }
+
+    const dialogOpen = (resumeDialogData && playingFile) && (resumeDialogData.filePath === playingFile.path);
 
     return (
         <div className="content">
@@ -84,7 +86,7 @@ const App = () => {
                 setWatchedFile={setWatchedFile}
                 showResumeDialog={showResumeDialog}>
 
-                {resumeDialogData && <ResumeDialog
+                {dialogOpen && <ResumeDialog
                     target={resumeDialogData.target}
                     resumeTime={resumeDialogData.resumeTime}
                     close={closeResumeDialog}

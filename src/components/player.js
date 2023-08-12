@@ -26,7 +26,7 @@ const Player = (props) => {
                 const resumeTime = localStorage.getItem(file.path);
                 if (resumeTime) {
                     event.target.pause();
-                    showResumeDialog(event.target, resumeTime);
+                    showResumeDialog(file.path, event.target, resumeTime);
                 }
             }}
         >
