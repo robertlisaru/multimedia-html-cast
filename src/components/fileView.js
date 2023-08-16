@@ -1,4 +1,14 @@
-const playableExtensions = [".mkv", ".mp4"];
+const playableExtensions = [
+    ".mkv",
+    ".mp4",
+    ".avi",
+    ".mov",
+    ".webm",
+    ".ogg",
+    ".wmv",
+    ".mpg",
+    ".mpeg",
+];
 
 const FileClass = { NORMAL: "fileName", WATCHED: "watchedFile", PLAYING: "playingFile" };
 
