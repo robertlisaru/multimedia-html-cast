@@ -1,6 +1,15 @@
 # multimedia-html-cast
 Use your smart tv web browser to view (cast) local multimedia files from your PC in a html web page served locally (LAN). Useful when other cast methods are not available.
 
+## implemented using
+
+<a href="https://babeljs.io/" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/3025322/87547253-bf050400-c6a2-11ea-950a-280311bc6cc8.png" alt="babel" width="40" height="40"/> </a> 
+<a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> 
+<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
+<a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_f0b606abb6d19089febc9faeeba5bc05/nodejs-development-services.png" alt="nodejs" width="40" height="40"/> </a> 
+<a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> 
+
 ## to do
 - [x] resume playback
 - [x] highlight watched episodes
@@ -40,16 +49,3 @@ npm run watch
 - then, copy some small test video files into the `src/res/Test video folder 1` which you'll use to test the app during development; these will be bundled to the `dist` folder by `webpack`;
 - after that, the script inside `scan-media.sh` will generate the `media.json` file with the contents of the `dist` folder;
 - lastly, to run the app start the http server by running `npm start`
-
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/f4b5f047-08ba-4ee9-95b2-2dc2a390fd7e)
-
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/9a629ecb-2727-4477-a9b8-3c94ddf21887)
-
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/6a17fde1-da43-4fc8-9b10-f15eae9c5dc2)
-
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/feed2f86-8c9c-49f5-8f3e-f21dd8c02f32)
-
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/97bf1b91-8209-4d96-9870-61e233436966)
-
-![image](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/bc2a47c3-542f-4ad4-b9df-0cce9a70ab32)
-
