@@ -1,6 +1,12 @@
 # multimedia-html-cast
 Use your smart tv web browser to view (cast) local multimedia files from your PC in a html web page served locally (LAN). Useful when other cast methods are not available.
 
+## to do
+- [x] resume playback
+- [x] highlight watched episodes
+- [x] load vtt subtitles
+- [ ] auto play next episode
+
 ## how to deploy and use
 - compile the app by running the `build` script, which uses `webpack` to minify and bundle the app into the output `dist` folder
 ```console
