@@ -11,6 +11,13 @@ Use your smart tv web browser to view (cast) local multimedia files from your PC
 <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_f0b606abb6d19089febc9faeeba5bc05/nodejs-development-services.png" alt="nodejs" width="40" height="40"/> </a> 
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> 
 
+## screenshots
+
+![POZICA_20240128_213153](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/ac0ea90b-b0f7-44bd-a29e-42dab6af6dc6)
+![POZICA_20240128_213505](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/1baae5d7-d0b6-4b2d-9d14-f75c39be1b20)
+![POZICA_20240128_213538](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/6c1f051e-3404-4c41-92b9-7d9ed6f2bd7d)
+
+
 ## to do
 - [x] resume playback
 - [x] highlight watched episodes
