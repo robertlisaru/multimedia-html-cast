@@ -19,8 +19,11 @@ Use your smart tv web browser to view (cast) local multimedia files from your PC
 
 
 ## features (implemented or to do)
+- [x] display movie list
+- [x] keep original folder structure
+- [x] preview movie alongside list 
 - [x] resume playback
-- [x] highlight watched episodes
+- [x] gray out watched episodes
 - [x] load vtt subtitles
 - [ ] auto play next episode
 
