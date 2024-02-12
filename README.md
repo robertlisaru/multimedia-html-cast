@@ -18,7 +18,7 @@ Use your smart tv web browser to view (cast) local multimedia files from your PC
 ![POZICA_20240128_213538](https://github.com/robertlisaru/multimedia-html-cast/assets/40792547/6c1f051e-3404-4c41-92b9-7d9ed6f2bd7d)
 
 
-## to do
+## features (implemented or to do)
 - [x] resume playback
 - [x] highlight watched episodes
 - [x] load vtt subtitles
