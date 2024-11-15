@@ -128,9 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-src/movie-files.json
 .fuse*
 src/res/Test videos folder 1/*
 src/res/Test videos folder 2/*
-src/media.json
 .fuse_hidden0000006300000013
+src/media.json
