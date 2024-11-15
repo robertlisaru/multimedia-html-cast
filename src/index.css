@@ -9,7 +9,6 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('./res/background.jpg');
     background-size: cover;
-    overflow: hidden;
 }
 
 .content {
@@ -65,11 +64,9 @@ li {
     border-style: solid;
     padding-left: 15px;
     padding-right: 15px;
-    height: 480px;
     min-width: 200px;
     margin-right: 30px;
     background-color: rgba(0, 0, 0, 0.60);
-    overflow-y: scroll;
     word-wrap: break-word;
 }
 
