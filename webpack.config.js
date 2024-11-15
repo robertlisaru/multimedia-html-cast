@@ -19,8 +19,8 @@ const config = {
         new CopyWebpackPlugin({
             patterns: [
                 "src/media.json",
-                { from: "src/res/Test videos folder 1/", to: "Test videos folder 1/" },
-                { from: "src/res/Test videos folder 2/", to: "Test videos folder 2/" },
+                { from: "src/res/Test videos folder 1/", to: "Test videos folder 1/", noErrorOnMissing: true },
+                { from: "src/res/Test videos folder 2/", to: "Test videos folder 2/", noErrorOnMissing: true },
             ]
         })
     ],
