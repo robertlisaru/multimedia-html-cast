@@ -24,11 +24,20 @@ li {
     list-style-type: none;
 }
 
-.directoryRow,
-.fileRow {
+.directoryRow {
     display: flex;
     align-items: center;
     height: 26px;
+}
+
+.fileRow {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+progress {
+    height: 8px;
 }
 
 .directoryTitle {
@@ -36,6 +45,7 @@ li {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
 }
 
 .directoryRow:hover {

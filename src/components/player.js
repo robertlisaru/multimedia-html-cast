@@ -11,10 +11,11 @@ const Player = (props) => {
             autoPlay
             width="100%"
             height="100%"
-            onProgress={(event) => {
+            onTimeUpdate={(event) => { //runs multiple times per second
                 const currentTime = event.target.currentTime;
+                console.log(currentTime);
                 if (currentTime > 10) {
-                    localStorage.setItem(file.path, currentTime);
+                    localStorage.setItem(file.path, currentTime); //TODO: debounce writes for performance
                 }
             }}
             onEnded={() => {
@@ -28,6 +29,9 @@ const Player = (props) => {
                     event.target.pause();
                     showResumeDialog(file.path, event.target, resumeTime);
                 }
+            }}
+            onLoadedMetadata={(event) => {
+                localStorage.setItem('DURATION_OF_' + file.path, event.target.duration);
             }}
         >
             <source src={normalizedPath}></source>
