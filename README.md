@@ -57,6 +57,14 @@ npx directory-tree --path './' --attributes type,extension --pretty -o ./media.j
 ```console
 npm run watch
 ```
-- then, copy some small test video files into the `src/res/Test video folder 1` which you'll use to test the app during development; these will be bundled to the `dist` folder by `webpack`;
-- after that, the script inside `scan-media.sh` will generate the `media.json` file with the contents of the `dist` folder;
+- then, copy some test video files into the `dist/Test video folder 1` which you'll use to test the app during development
+
+_Note: copying files manually elsewhere inside the `dist` folder during development will not work, they will get deleted by Webpack cleanup, see `webpack.config.js`_
+- after that, run the `directory-tree` command from the `dist` folder 
+```console
+npx directory-tree --path './' --attributes type,extension --pretty -o ./media.json
+```
+this will generate the `media.json` file referencing the video files you copied;
+
+
 - lastly, to run the app start the http server by running `npm start`

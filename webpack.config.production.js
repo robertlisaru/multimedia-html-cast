@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const config = {
     mode: "production",
@@ -7,12 +8,19 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.[contenthash].js',
-        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index-template.html',
             inject: "body"
+        }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                '**/*', // Clean everything in the output directory
+                '!Test videos folder 1/**', // Exclude 
+                '!Test videos folder 2/**', // Exclude 
+                '!media.json', // Exclude 
+            ],
         })
     ],
     module: {

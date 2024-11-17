@@ -1,6 +1,6 @@
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const config = {
     mode: "development",
@@ -9,19 +9,19 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.[contenthash].js',
-        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'src/index-template.html',
             inject: "body"
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                "src/media.json",
-                { from: "src/res/Test videos folder 1/", to: "Test videos folder 1/", noErrorOnMissing: true },
-                { from: "src/res/Test videos folder 2/", to: "Test videos folder 2/", noErrorOnMissing: true },
-            ]
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                '**/*', // Clean everything in the output directory
+                '!Test videos folder 1/**', // Exclude 
+                '!Test videos folder 2/**', // Exclude 
+                '!media.json', // Exclude 
+            ],
         })
     ],
     module: {
