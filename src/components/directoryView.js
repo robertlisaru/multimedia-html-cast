@@ -1,5 +1,5 @@
 import FileView from './fileView';
-import { FaFolder } from "react-icons/fa";
+import { FaFolder, FaFolderOpen } from "react-icons/fa";
 
 const DirectoryView = ({
     directory,
@@ -15,7 +15,10 @@ const DirectoryView = ({
         <span
             className="directoryRow"
             onClick={() => toggleExpand(directory.path)}>
-            <FaFolder size={24}></FaFolder>
+            {isExpanded ?
+                <FaFolderOpen size={24}></FaFolderOpen>
+                :
+                <FaFolder size={24}></FaFolder>}
             <span className="directoryTitle">{directory.name}</span>
         </span>
         {isExpanded && <ul
