@@ -24,13 +24,18 @@ li {
     list-style-type: none;
 }
 
-.directoryRow {
+.directoryRow,
+.fileRow {
     display: flex;
     align-items: center;
+    height: 26px;
 }
 
 .directoryTitle {
     margin-left: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .directoryRow:hover {
@@ -39,24 +44,24 @@ li {
 }
 
 .childList {
-    margin-left: 15px;
+    margin-left: 3em;
 }
 
 .playingFile {
-    font-size: 14px;
     color: red;
 }
 
-.fileName {
-    font-size: 14px;
+.fileTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .watchedFile {
-    font-size: 14px;
     color: grey;
 }
 
-.fileName:hover {
+.normalFile:hover {
     cursor: pointer;
     color: palegreen;
 }

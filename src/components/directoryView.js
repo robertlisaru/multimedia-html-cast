@@ -15,10 +15,10 @@ const DirectoryView = ({
         <span
             className="directoryRow"
             onClick={() => toggleExpand(directory.path)}>
-            {isExpanded ?
+            <div>{isExpanded ?
                 <FaFolderOpen size={24}></FaFolderOpen>
                 :
-                <FaFolder size={24}></FaFolder>}
+                <FaFolder size={24}></FaFolder>}</div>
             <span className="directoryTitle">{directory.name}</span>
         </span>
         {isExpanded && <ul

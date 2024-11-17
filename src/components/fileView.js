@@ -10,7 +10,7 @@ const playableExtensions = [
     ".mpeg",
 ];
 
-const FileClass = { NORMAL: "fileName", WATCHED: "watchedFile", PLAYING: "playingFile" };
+const FileClass = { NORMAL: "normalFile", WATCHED: "watchedFile", PLAYING: "playingFile" };
 
 const FileView = ({ file, play, playingFile, watchedFiles }) => {
     const isPlayable = playableExtensions.includes(file.extension);
@@ -20,10 +20,10 @@ const FileView = ({ file, play, playingFile, watchedFiles }) => {
     var fileClass = isPlaying ? FileClass.PLAYING : (isWatched ? FileClass.WATCHED : FileClass.NORMAL);
 
     return isPlayable && <li
-        className={fileClass}
+        className={'fileRow' + ' ' + fileClass}
         onClick={(() => { play(file); })}
     >
-        {file.name}
+        <span className={"fileTitle"}>{file.name}</span>
     </li>;
 
 };
