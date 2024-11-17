@@ -1,4 +1,6 @@
 import FileView from './fileView';
+import { FaFolder } from "react-icons/fa";
+
 const DirectoryView = ({
     directory,
     toggleExpand,
@@ -9,11 +11,13 @@ const DirectoryView = ({
 
     const isExpanded = expandedDirectories.includes(directory.path);
 
-    return <li><div><span
-        className="directoryName"
-        onClick={() => toggleExpand(directory.path)}>
-        {directory.name + " /"}
-    </span>
+    return <li>
+        <span
+            className="directoryRow"
+            onClick={() => toggleExpand(directory.path)}>
+            <FaFolder size={24}></FaFolder>
+            <span className="directoryTitle">{directory.name}</span>
+        </span>
         {isExpanded && <ul
             className="childList">
             {directory.children.map((child) => {
@@ -38,7 +42,7 @@ const DirectoryView = ({
                 }
             })}
         </ul>}
-    </div></li >;
+    </li >;
 };
 
 export default DirectoryView;

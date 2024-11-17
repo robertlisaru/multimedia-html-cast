@@ -24,7 +24,16 @@ li {
     list-style-type: none;
 }
 
-.directoryName:hover {
+.directoryRow {
+    display: flex;
+    align-items: center;
+}
+
+.directoryTitle {
+    margin-left: 5px;
+}
+
+.directoryRow:hover {
     cursor: pointer;
     color: palegreen;
 }
