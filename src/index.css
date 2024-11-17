@@ -13,7 +13,7 @@ body {
 
 .content {
     display: flex;
-    padding: 5%;
+    padding: 10px 20px;
 }
 
 ul {
@@ -62,10 +62,10 @@ li {
     border-radius: 10px;
     border-color: black;
     border-style: solid;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
     min-width: 200px;
-    margin-right: 30px;
+    margin-right: 10px;
     background-color: rgba(0, 0, 0, 0.60);
     word-wrap: break-word;
 }
@@ -85,6 +85,8 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top: 10px;
 }
 
 .resumeLabel {
