@@ -14,8 +14,10 @@ const Player = (props) => {
             height="100%"
             onTimeUpdate={(event) => {
                 const currentTime = event.target.currentTime;
+                const duration = event.target.duration;
                 if (currentTime - lastSave > 10) {
                     localStorage.setItem(file.path, currentTime);
+                    localStorage.setItem("PROGRESS_OF_" + file.path, currentTime / duration);
                     lastSave = currentTime;
                 }
             }}
@@ -23,6 +25,7 @@ const Player = (props) => {
                 setWatchedFile(file);
                 closePlayer();
                 localStorage.removeItem(file.path);
+                localStorage.setItem("PROGRESS_OF_" + file.path, 1);
             }}
             onLoadedData={(event) => {
                 const resumeTime = localStorage.getItem(file.path);
@@ -30,9 +33,6 @@ const Player = (props) => {
                     event.target.pause();
                     showResumeDialog(file.path, event.target, resumeTime);
                 }
-            }}
-            onLoadedMetadata={(event) => {
-                localStorage.setItem('DURATION_OF_' + file.path, event.target.duration);
             }}
         >
             <source src={normalizedPath}></source>
