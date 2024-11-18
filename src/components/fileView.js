@@ -1,3 +1,5 @@
+import ProgressBar from './progressBar';
+
 const playableExtensions = [
     ".mkv",
     ".mp4",
@@ -25,7 +27,10 @@ const FileView = ({ file, play, playingFile, watchedFiles }) => {
     var progress; //TODO: use React state for real-time updating of the progress-bar
     if (fileDuration && resumeTime) {
         progress = Number(resumeTime) / Number(fileDuration);
-    } else {
+    } else if (isWatched) {
+        progress = 1;
+    }
+    else {
         progress = 0;
     }
 
@@ -34,7 +39,7 @@ const FileView = ({ file, play, playingFile, watchedFiles }) => {
         onClick={(() => { play(file); })}
     >
         <span className={"fileTitle"}>{file.name}</span>
-        <progress value={progress}></progress>
+        <ProgressBar value={progress} />
     </li>;
 
 };
