@@ -13,7 +13,6 @@ const Player = (props) => {
             height="100%"
             onTimeUpdate={(event) => { //runs multiple times per second
                 const currentTime = event.target.currentTime;
-                console.log(currentTime);
                 if (currentTime > 10) {
                     localStorage.setItem(file.path, currentTime); //TODO: debounce writes for performance
                 }
