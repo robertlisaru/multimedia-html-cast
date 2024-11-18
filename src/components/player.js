@@ -3,6 +3,7 @@ const Player = (props) => {
     const { file, closePlayer, setWatchedFile, showResumeDialog } = props;
     const normalizedPath = file.path.replace(/[\\/]+/g, '/');
     const subtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
+    var lastSave = 0;
 
     return <div className="player">
         <video
@@ -11,10 +12,11 @@ const Player = (props) => {
             autoPlay
             width="100%"
             height="100%"
-            onTimeUpdate={(event) => { //runs multiple times per second
+            onTimeUpdate={(event) => {
                 const currentTime = event.target.currentTime;
-                if (currentTime > 10) {
-                    localStorage.setItem(file.path, currentTime); //TODO: debounce writes for performance
+                if (currentTime - lastSave > 10) {
+                    localStorage.setItem(file.path, currentTime);
+                    lastSave = currentTime;
                 }
             }}
             onEnded={() => {
