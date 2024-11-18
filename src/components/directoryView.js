@@ -1,20 +1,24 @@
 import FileView from './fileView';
 import { FaFolder, FaFolderOpen } from "react-icons/fa";
+import { useState } from 'react';
 
 const DirectoryView = ({
+    defaultExpanded,
     directory,
-    toggleExpand,
     playFile,
-    expandedDirectories,
     playingFile,
     watchedFiles }) => {
 
-    const isExpanded = expandedDirectories.includes(directory.path);
+    const [isExpanded, setExpanded] = useState(defaultExpanded);
+
+    const toggleExpand = () => {
+        setExpanded((prevState) => !prevState);
+    };
 
     return <li>
         <span
             className="directoryRow"
-            onClick={() => toggleExpand(directory.path)}>
+            onClick={() => toggleExpand()}>
             <div>{isExpanded ?
                 <FaFolderOpen size={24}></FaFolderOpen>
                 :
@@ -27,10 +31,9 @@ const DirectoryView = ({
                 if (child.type === "directory") {
                     return <DirectoryView
                         key={child.path}
+                        defaultExpanded={false}
                         directory={child}
-                        toggleExpand={toggleExpand}
                         playFile={playFile}
-                        expandedDirectories={expandedDirectories}
                         playingFile={playingFile}
                         watchedFiles={watchedFiles}
                     ></DirectoryView>;

@@ -14,7 +14,6 @@ const App = () => {
         "type": "directory"
     });
     const [playingFile, setPlayingFile] = useState(null);
-    const [expandedDirectories, setExpandedDirectories] = useState(["./"]);
     const [watchedFiles, setWatchedFiles] = useState(() => {
         const storedItem = localStorage.getItem("WATCHED_FILES");
         return (storedItem ? JSON.parse(storedItem) : []);
@@ -32,20 +31,6 @@ const App = () => {
     }, [watchedFiles]);
 
     function closePlayer() { setPlayingFile(null); };
-
-    function toggleExpand(directoryPath) {
-        if (expandedDirectories.includes(directoryPath)) {
-            setExpandedDirectories((_expandedDirectories) => {
-                return _expandedDirectories.filter((value) => {
-                    return (value !== directoryPath);
-                });
-            });
-        } else {
-            setExpandedDirectories((_expandedDirectories) => {
-                return [..._expandedDirectories, directoryPath];
-            });
-        };
-    }
 
     function setWatchedFile(file) {
         if (!watchedFiles.includes(file.path)) {
@@ -71,10 +56,9 @@ const App = () => {
             <div className="directoryExplorer">
                 <ul>
                     <DirectoryView
+                        defaultExpanded={true}
                         directory={mediaDirectory}
-                        toggleExpand={toggleExpand}
                         playFile={setPlayingFile}
-                        expandedDirectories={expandedDirectories}
                         playingFile={playingFile}
                         watchedFiles={watchedFiles}
                     ></DirectoryView>
