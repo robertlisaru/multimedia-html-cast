@@ -7,31 +7,29 @@ import { createRoot } from 'react-dom/client';
 import { StrictMode, useEffect, useState } from 'react';
 
 const App = () => {
+
     const [mediaDirectory, setMediaDirectory] = useState({
         "path": "./",
         "name": "loading...",
         "children": [],
         "type": "directory"
     });
-    const [playingFile, setPlayingFile] = useState(null);
-    const [watchedFiles, setWatchedFiles] = useState(() => {
-        const storedItem = localStorage.getItem("WATCHED_FILES");
-        return (storedItem ? JSON.parse(storedItem) : []);
-    });
-    const [resumeDialogData, setResumeDialogData] = useState(null);
-
     useEffect(() => {
         fetch('./media.json').then((response) => {
             response.json().then(setMediaDirectory);
         });
     }, []);
 
+    const [playingFile, setPlayingFile] = useState(null);
+    function closePlayer() { setPlayingFile(null); };
+
+    const [watchedFiles, setWatchedFiles] = useState(() => {
+        const storedItem = localStorage.getItem("WATCHED_FILES");
+        return (storedItem ? JSON.parse(storedItem) : []);
+    });
     useEffect(() => {
         localStorage.setItem("WATCHED_FILES", JSON.stringify(watchedFiles));
     }, [watchedFiles]);
-
-    function closePlayer() { setPlayingFile(null); };
-
     function setWatchedFile(file) {
         if (!watchedFiles.includes(file.path)) {
             setWatchedFiles((_watchedFiles) => {
@@ -41,15 +39,28 @@ const App = () => {
 
     }
 
+    const [resumeDialogData, setResumeDialogData] = useState(null);
     function showResumeDialog(filePath, target, resumeTime) {
         setResumeDialogData({ filePath: filePath, target: target, resumeTime: resumeTime });
     }
-
     function closeResumeDialog() {
         setResumeDialogData(null);
     }
-
     const dialogOpen = (resumeDialogData && playingFile) && (resumeDialogData.filePath === playingFile.path);
+
+    const [progressPerMovie, setProgressPerMovie] = useState(() => {
+        const savedMap = localStorage.getItem("PROGRESS_PER_MOVIE");
+        return (savedMap) ? new Map(JSON.parse(savedMap)) : new Map();
+    })
+    const updateProgress = (key, value) => {
+        const newMap = new Map(progressPerMovie);
+        newMap.set(key, value);
+        setProgressPerMovie(newMap);
+    };
+    useEffect(() => {
+        const mapArray = Array.from(progressPerMovie);
+        localStorage.setItem("PROGRESS_PER_MOVIE", JSON.stringify(mapArray));
+    }, [progressPerMovie]);
 
     return (
         <div className="content">
@@ -61,6 +72,7 @@ const App = () => {
                         playFile={setPlayingFile}
                         playingFile={playingFile}
                         watchedFiles={watchedFiles}
+                        progressPerMovie={progressPerMovie}
                     ></DirectoryView>
                 </ul>
             </div>
@@ -68,7 +80,9 @@ const App = () => {
                 file={playingFile}
                 closePlayer={closePlayer}
                 setWatchedFile={setWatchedFile}
-                showResumeDialog={showResumeDialog}>
+                showResumeDialog={showResumeDialog}
+                updateProgress={updateProgress}
+            >
 
                 {dialogOpen && <ResumeDialog
                     target={resumeDialogData.target}

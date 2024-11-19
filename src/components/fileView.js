@@ -14,14 +14,14 @@ const playableExtensions = [
 
 const FileClass = { NORMAL: "normalFile", WATCHED: "watchedFile", PLAYING: "playingFile" };
 
-const FileView = ({ file, play, playingFile, watchedFiles }) => {
+const FileView = ({ file, play, playingFile, watchedFiles, progressPerMovie }) => {
     const isPlayable = playableExtensions.includes(file.extension);
     const isPlaying = playingFile && (file.path === playingFile.path);
     const isWatched = watchedFiles.includes(file.path);
 
     var fileClass = isPlaying ? FileClass.PLAYING : (isWatched ? FileClass.WATCHED : FileClass.NORMAL);
 
-    var progress = Number(localStorage.getItem('PROGRESS_OF_' + file.path));
+    var progress = progressPerMovie ? Number(progressPerMovie.get(file.path) || 0) : 0;
 
     return isPlayable && <li
         className={'fileRow' + ' ' + fileClass}

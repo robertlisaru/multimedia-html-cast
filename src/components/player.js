@@ -1,9 +1,10 @@
+import { useRef } from "react";
 
 const Player = (props) => {
-    const { file, closePlayer, setWatchedFile, showResumeDialog } = props;
+    const { file, closePlayer, setWatchedFile, showResumeDialog, updateProgress } = props;
     const normalizedPath = file.path.replace(/[\\/]+/g, '/');
     const subtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
-    var lastSave = 0;
+    const lastSaved = useRef(0);
 
     return <div className="player">
         <video
@@ -15,17 +16,18 @@ const Player = (props) => {
             onTimeUpdate={(event) => {
                 const currentTime = event.target.currentTime;
                 const duration = event.target.duration;
-                if (currentTime - lastSave > 10) {
+                if (Math.abs(currentTime - lastSaved.current) > 5) {
                     localStorage.setItem(file.path, currentTime);
-                    localStorage.setItem("PROGRESS_OF_" + file.path, currentTime / duration);
-                    lastSave = currentTime;
+                    updateProgress(file.path, currentTime / duration);
+                    console.log(currentTime);
+                    lastSaved.current = currentTime;
                 }
             }}
             onEnded={() => {
                 setWatchedFile(file);
                 closePlayer();
                 localStorage.removeItem(file.path);
-                localStorage.setItem("PROGRESS_OF_" + file.path, 1);
+                updateProgress(file.path, 1);
             }}
             onLoadedData={(event) => {
                 const resumeTime = localStorage.getItem(file.path);
