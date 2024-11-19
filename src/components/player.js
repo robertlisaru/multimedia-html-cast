@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 const Player = (props) => {
-    const { file, closePlayer, setWatchedFile, showResumeDialog, updateProgress } = props;
+    const { file, closePlayer, showResumeDialog, updateProgress } = props;
     const normalizedPath = file.path.replace(/[\\/]+/g, '/');
     const subtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
     const lastSaved = useRef(0);
@@ -24,7 +24,6 @@ const Player = (props) => {
                 }
             }}
             onEnded={() => {
-                setWatchedFile(file);
                 closePlayer();
                 localStorage.removeItem(file.path);
                 updateProgress(file.path, 1);

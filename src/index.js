@@ -23,22 +23,6 @@ const App = () => {
     const [playingFile, setPlayingFile] = useState(null);
     function closePlayer() { setPlayingFile(null); };
 
-    const [watchedFiles, setWatchedFiles] = useState(() => {
-        const storedItem = localStorage.getItem("WATCHED_FILES");
-        return (storedItem ? JSON.parse(storedItem) : []);
-    });
-    useEffect(() => {
-        localStorage.setItem("WATCHED_FILES", JSON.stringify(watchedFiles));
-    }, [watchedFiles]);
-    function setWatchedFile(file) {
-        if (!watchedFiles.includes(file.path)) {
-            setWatchedFiles((_watchedFiles) => {
-                return [..._watchedFiles, file.path];
-            });
-        }
-
-    }
-
     const [resumeDialogData, setResumeDialogData] = useState(null);
     function showResumeDialog(filePath, target, resumeTime) {
         setResumeDialogData({ filePath: filePath, target: target, resumeTime: resumeTime });
@@ -71,7 +55,6 @@ const App = () => {
                         directory={mediaDirectory}
                         playFile={setPlayingFile}
                         playingFile={playingFile}
-                        watchedFiles={watchedFiles}
                         progressPerMovie={progressPerMovie}
                     ></DirectoryView>
                 </ul>
@@ -79,7 +62,6 @@ const App = () => {
             {playingFile && <Player
                 file={playingFile}
                 closePlayer={closePlayer}
-                setWatchedFile={setWatchedFile}
                 showResumeDialog={showResumeDialog}
                 updateProgress={updateProgress}
             >

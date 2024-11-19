@@ -7,7 +7,6 @@ const DirectoryView = ({
     directory,
     playFile,
     playingFile,
-    watchedFiles,
     progressPerMovie }) => {
 
     const [isExpanded, setExpanded] = useState(defaultExpanded);
@@ -36,7 +35,6 @@ const DirectoryView = ({
                         directory={child}
                         playFile={playFile}
                         playingFile={playingFile}
-                        watchedFiles={watchedFiles}
                         progressPerMovie={progressPerMovie}
                     ></DirectoryView>;
                 } else {
@@ -45,7 +43,6 @@ const DirectoryView = ({
                         file={child}
                         play={playFile}
                         playingFile={playingFile}
-                        watchedFiles={watchedFiles}
                         progressPerMovie={progressPerMovie}
                     ></FileView>;
                 }

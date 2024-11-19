@@ -71,7 +71,7 @@ li {
 }
 
 .playingFile {
-    color: red;
+    color: lightgreen;
 }
 
 .fileTitle {
@@ -80,19 +80,11 @@ li {
     text-overflow: ellipsis;
 }
 
-.watchedFile {
-    color: grey;
-}
-
 .normalFile:hover {
     cursor: pointer;
-    color: palegreen;
+    color: lightblue;
 }
 
-.watchedFile:hover {
-    cursor: pointer;
-    color: palegreen;
-}
 
 .directoryExplorer {
     border-width: 3px;
