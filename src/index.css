@@ -38,12 +38,15 @@ li {
 }
 
 .progress-container {
-    width: 100%;
+    width: 8em;
     height: 4px;
     background-color: gray;
     border-radius: 2px;
     overflow: hidden;
     position: relative;
+    margin-top: 4px;
+    align-self: start;
+    margin-right: auto;
 }
 
 .progress-bar {
