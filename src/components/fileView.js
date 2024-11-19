@@ -23,13 +23,19 @@ const FileView = ({ file, play, playingFile, watchedFiles, progressPerMovie }) =
 
     var progress = progressPerMovie ? Number(progressPerMovie.get(file.path) || 0) : 0;
 
-    return isPlayable && <li
-        className={'fileRow' + ' ' + fileClass}
-        onClick={(() => { play(file); })}
-    >
-        <span className={"fileTitle"}>{file.name}</span>
-        <ProgressBar value={progress} />
-    </li>;
+    const viewProgressBar = () => {
+        return (progress > 0) && <ProgressBar value={progress} />
+    }
+
+    return isPlayable &&
+        <li
+            className={'fileRow' + ' ' + fileClass}
+            onClick={(() => { play(file); })}>
+
+            <span className={"fileTitle"}>{file.name}</span>
+            {viewProgressBar()}
+
+        </li>;
 
 };
 
