@@ -3,7 +3,7 @@ import { useRef } from "react";
 const Player = (props) => {
     const { file, closePlayer, showResumeDialog, updateProgress, playingFileProgress } = props;
     const normalizedPath = file.path.replace(/[\\/]+/g, '/');
-    const subtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
+    const vttSubtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
     const lastSaved = useRef(0);
 
     return <div className="player">
@@ -39,9 +39,9 @@ const Player = (props) => {
             }}
         >
             <source src={normalizedPath}></source>
-            <track src={subtitlePath}
+            <track src={vttSubtitlePath}
                 kind="subtitles"
-                label="Subtitle"
+                label="vtt"
                 default>
 
             </track>
