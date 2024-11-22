@@ -63,7 +63,7 @@ li {
 
 .directoryRow:hover {
     cursor: pointer;
-    color: palegreen;
+    color: lightblue;
 }
 
 .childList {
