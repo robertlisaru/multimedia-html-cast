@@ -132,3 +132,7 @@ li {
     border-style: solid;
     padding: 10px;
 }
+
+video::cue {
+    font-family: "Noto Sans", "Roboto", "Open Sans", "Arial", sans-serif;
+}
