@@ -16,7 +16,12 @@ const Player = (props) => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch the SRT file");
                 }
-                const srtContent = await response.text();
+
+                const arrayBuffer = await response.arrayBuffer();
+
+                const decoder = new TextDecoder("iso-8859-2");
+                const srtContent = decoder.decode(arrayBuffer);
+
 
                 const vttContent = convertSRTtoVTT(srtContent);
 
@@ -83,7 +88,7 @@ const Player = (props) => {
             <track src={vttSubtitlePath}
                 kind="subtitles"
                 label="vtt"
-                >
+            >
 
             </track>
             <track src={vttFromSrtUrl}
