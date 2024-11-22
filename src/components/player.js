@@ -1,10 +1,51 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const Player = (props) => {
     const { file, closePlayer, showResumeDialog, updateProgress, playingFileProgress } = props;
     const normalizedPath = file.path.replace(/[\\/]+/g, '/');
     const vttSubtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
+    const srtSubtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".srt";
     const lastSaved = useRef(0);
+
+    const [vttFromSrtUrl, setVttFromSrtUrl] = useState(null);
+
+    useEffect(() => {
+        const fetchAndConvertSRT = async () => {
+            try {
+                const response = await fetch(srtSubtitlePath);
+                if (!response.ok) {
+                    throw new Error("Failed to fetch the SRT file");
+                }
+                const srtContent = await response.text();
+
+                const vttContent = convertSRTtoVTT(srtContent);
+
+                const blob = new Blob([vttContent], { type: "text/vtt" });
+                const vttURL = URL.createObjectURL(blob);
+
+                setVttFromSrtUrl(vttURL);
+
+                // Clean up the Blob URL when the component unmounts
+                return () => {
+                    URL.revokeObjectURL(vttURL);
+                };
+            } catch (error) {
+                console.error("Error processing the SRT file:", error);
+            }
+        };
+
+        fetchAndConvertSRT();
+    }, []);
+
+    const convertSRTtoVTT = (srt) => {
+        let vtt = "WEBVTT\n\n";
+
+        vtt += srt
+            .replace(/\r/g, "") // Remove carriage returns
+            .replace(/(\d+:\d+:\d+),(\d+)/g, "$1.$2"); // Replace commas with periods in timestamps
+
+        return vtt;
+    };
 
     return <div className="player">
         <video
@@ -42,6 +83,12 @@ const Player = (props) => {
             <track src={vttSubtitlePath}
                 kind="subtitles"
                 label="vtt"
+                >
+
+            </track>
+            <track src={vttFromSrtUrl}
+                kind="subtitles"
+                label="vtt from srt"
                 default>
 
             </track>
