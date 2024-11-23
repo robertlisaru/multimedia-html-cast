@@ -33,18 +33,11 @@ const Player = (props) => {
 
     const loadSubtitles = () => {
         return findSubtitles().map((subtitle) => {
-            if (subtitle.extension == ".vtt") {
-                return <track
-                    key={subtitle.path}
-                    src={normalize(subtitle.path)}
-                    kind="subtitles"
-                    label="vtt subtitle" />
-            } else {
-                return <SrtTrack
-                    key={subtitle.path}
-                    path={normalize(subtitle.path)}
-                    isDefault={subtitle.name == defaultSubtitleName} />
-            }
+            return <SrtTrack
+                key={subtitle.path}
+                path={normalize(subtitle.path)}
+                extension={subtitle.extension}
+                isDefault={subtitle.name == defaultSubtitleName} />
         });
     }
 

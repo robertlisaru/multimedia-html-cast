@@ -3,7 +3,7 @@ import { franc } from 'franc';
 const convert3To1 = require('iso-639-3-to-1');
 import Iso639Type from 'iso-639-language';
 
-const SrtTrack = ({ path, isDefault = false }) => {
+const SrtTrack = ({ path, extension, isDefault = false }) => {
 
     const [trackUrl, setTrackUrl] = useState(null);
     const [languageCode, setLanguageCode] = useState(null);
@@ -20,9 +20,9 @@ const SrtTrack = ({ path, isDefault = false }) => {
                 const arrayBuffer = await response.arrayBuffer();
 
                 const decoder = new TextDecoder("iso-8859-2");
-                const srtContent = decoder.decode(arrayBuffer);
+                const subtitleText = decoder.decode(arrayBuffer);
 
-                const iso639_3 = franc(srtContent); // Detect ISO 639-3 code
+                const iso639_3 = franc(subtitleText); // Detect ISO 639-3 code
                 if (iso639_3 === "und") {
                     setLanguageCode(null);
                     setLanguageName("Unknown")
@@ -32,17 +32,22 @@ const SrtTrack = ({ path, isDefault = false }) => {
                     setLanguageName(Iso639Type.getType(1).getNameByCodeNative(iso639_1));
                 }
 
-                const vttContent = convertSRTtoVTT(srtContent);
+                if (extension != ".vtt") {
+                    const vttContent = convertSRTtoVTT(subtitleText);
 
-                const blob = new Blob([vttContent], { type: "text/vtt" });
-                const vttURL = URL.createObjectURL(blob);
+                    const blob = new Blob([vttContent], { type: "text/vtt" });
+                    const vttURL = URL.createObjectURL(blob);
 
-                setTrackUrl(vttURL);
+                    setTrackUrl(vttURL);
 
-                // Clean up the Blob URL when the component unmounts
-                return () => {
-                    URL.revokeObjectURL(vttURL);
-                };
+                    // Clean up the Blob URL when the component unmounts
+                    return () => {
+                        URL.revokeObjectURL(vttURL);
+                    };
+                } else {
+                    setTrackUrl(path);
+                }
+
             } catch (error) {
                 console.error("Error processing subtitle:", error);
             }
