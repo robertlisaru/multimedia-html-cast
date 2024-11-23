@@ -48,7 +48,7 @@ const SrtTrack = ({ path, isDefault = false }) => {
 
     return trackUrl && <track src={trackUrl}
         kind="subtitles"
-        label="subtitle"
+        label="srt subtitle"
         {...(isDefault && { default: true })} />
 
 };

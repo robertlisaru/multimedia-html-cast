@@ -2,10 +2,54 @@ import { useRef, useState, useEffect } from "react";
 import SrtTrack from "./srtTrack";
 
 const Player = (props) => {
-    const { file, closePlayer, showResumeDialog, updateProgress, playingFileProgress } = props;
-    const normalizedPath = file.path.replace(/[\\/]+/g, '/');
-    const vttSubtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".vtt";
-    const srtSubtitlePath = normalizedPath.slice(0, normalizedPath.lastIndexOf(".")) + ".srt";
+    const { file, closePlayer, showResumeDialog, updateProgress, playingFileProgress, mediaDirectory } = props;
+
+    const normalize = (path) => {
+        return path.replace(/[\\/]+/g, '/');
+    }
+
+    const normalizedPath = normalize(file.path);
+
+    const findSubtitles = () => {
+        var currentFolder = mediaDirectory;
+        const pathTokens = normalizedPath.split('/');
+        pathTokens.pop();
+
+        while (pathTokens.length > 0 && currentFolder) {
+            var subFolder = pathTokens.shift();
+            currentFolder = currentFolder.children.filter((child) => { return (child.name == subFolder) })[0];
+        }
+
+        const subtitles =
+            currentFolder.children.filter((child) => {
+                return (child.extension == ".srt" ||
+                    child.extension == ".vtt")
+            });
+
+        return subtitles;
+    }
+
+    const defaultSubtitleName = file.name.slice(0, file.name.lastIndexOf(".")) + ".srt";
+
+    const loadSubtitles = () => {
+        return findSubtitles().map((subtitle) => {
+            console.log(subtitle);
+            console.log("default subtitle:" + defaultSubtitleName);
+            if (subtitle.extension == ".vtt") {
+                return <track
+                    key={subtitle.path}
+                    src={normalize(subtitle.path)}
+                    kind="subtitles"
+                    label="vtt subtitle" />
+            } else {
+                return <SrtTrack
+                    key={subtitle.path}
+                    path={normalize(subtitle.path)}
+                    isDefault={subtitle.name == defaultSubtitleName} />
+            }
+        });
+    }
+
     const lastSaved = useRef(0);
 
     return <div className="player">
@@ -41,11 +85,7 @@ const Player = (props) => {
             }}
         >
             <source src={normalizedPath}></source>
-            <track src={vttSubtitlePath}
-                kind="subtitles"
-                label="vtt"
-            ></track>
-            <SrtTrack path={srtSubtitlePath} isDefault={true} />
+            {loadSubtitles()}
 
         </video>
         {props.children}

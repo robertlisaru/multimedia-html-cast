@@ -65,6 +65,7 @@ const App = () => {
                 showResumeDialog={showResumeDialog}
                 updateProgress={updateProgress}
                 playingFileProgress={progressPerMovie.get(playingFile.path)}
+                mediaDirectory={mediaDirectory}
             >
 
                 {dialogOpen && <ResumeDialog
