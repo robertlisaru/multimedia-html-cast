@@ -25,6 +25,8 @@ Use your smart tv web browser to view (cast) local multimedia files from your PC
 - [x] resume playback
 - [x] show watching progress next to movie title for each movie
 - [x] load vtt subtitles
+- [x] load srt subtitles
+- [x] detect subtitle language
 - [ ] auto play next episode
 
 ## how to deploy and use
@@ -50,7 +52,7 @@ npx directory-tree --path './' --attributes type,extension --pretty -o ./media.j
 
 - your `movies` folder is now ready to be served; start your favourite `http` web server and use the `movies` folder as `root`
 - on your smart tv, open the web browser and type the local address of the machine hosting the `movies`; you should see your movie files on the left
-- browse the folders and click the movie you want to watch; a subtitle will be loaded if it has the same name as the movie file next to it, and it's `.vtt` format (you can use online converters to go from `.srt` to a `.vtt` file)
+- browse the folders and click the movie you want to watch; a subtitle will be loaded if it has the same name as the movie file next to it, and it's `.vtt` or `.srt` format
 
 ## development
 - for fast development you need to start `webpack` in `watch` mode, so it continuously watches code changes and rebuilds on the fly
