@@ -1,1 +1,1 @@
-pushd dist/ && npx directory-tree --path './' --attributes type,extension --pretty -o ./../src/media.json && popd
+pushd dist/ && npx directory-tree --path './' --attributes type,extension --pretty -o ./media.json && popd

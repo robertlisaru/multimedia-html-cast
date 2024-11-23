@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --config webpack.config.production.js",
     "watch": "webpack -w --mode=development --config webpack.config.js",
+    "scan": "cd dist && directory-tree --path ./ --attributes type,extension --pretty -o ./media.json",
     "start": "node server.js"
   },
   "repository": {
