@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import SrtTrack from "./srtTrack";
 
 const Player = (props) => {
