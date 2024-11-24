@@ -104,6 +104,7 @@ const Player = ({ file, closePlayer, updateProgress, playingFileProgress, mediaD
                 }}>YES</button>
             <button onClick={() => {
                 closeDialog();
+                closePlayer();
             }}>NO</button>
 
         </div >}
