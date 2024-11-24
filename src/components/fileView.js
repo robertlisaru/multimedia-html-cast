@@ -22,13 +22,11 @@ const FileView = ({ file, play, playingFile, progressPerMovie }) => {
 
     const viewProgressBar = () => {
         var ratio = 0;
-        if (progressPerMovie) {
-            const progressObj = progressPerMovie.get(file.path);
-            if (progressObj) {
-                ratio = Number(progressObj.ratio) || 0;
-            }
+        const progressObj = progressPerMovie?.get(file.path);
+        if (progressObj) {
+            ratio = Number(progressObj.ratio) || 0;
+            return <ProgressBar value={ratio} />
         }
-        return (ratio > 0) && <ProgressBar value={ratio} />
     }
 
     return isPlayable &&

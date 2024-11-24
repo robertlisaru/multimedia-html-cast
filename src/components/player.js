@@ -75,10 +75,17 @@ const Player = ({ file, closePlayer, updateProgress, playingFileProgress, mediaD
                 showDialog(file.path);
             }}
             onLoadedData={(event) => {
+                const currentTime = event.target.currentTime;
+                const duration = event.target.duration;
                 var resumeTime = playingFileProgress?.time;
                 if (resumeTime) {
                     event.target.currentTime = resumeTime;
                     event.target.play();
+                } else {
+                    updateProgress(file.path, {
+                        time: currentTime,
+                        ratio: currentTime / duration
+                    });
                 }
             }}
         >
