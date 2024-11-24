@@ -71,6 +71,7 @@ const Player = ({ file, closePlayer, updateProgress, playingFileProgress, mediaD
                 }
             }}
             onEnded={() => {
+                document.exitFullscreen().catch((_) => { });
                 showDialog(file.path);
             }}
             onLoadedData={(event) => {
