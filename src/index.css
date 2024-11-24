@@ -113,14 +113,14 @@ li {
     top: 10px;
 }
 
-.resumeLabel {
+.dialogLabel {
     width: 100%;
     flex-basis: 100;
     text-align: center;
     margin-bottom: 10px;
 }
 
-.resumeDialog {
+.dialog {
     background: rgba(0, 0, 0, 0.60);
     position: fixed;
     display: flex;

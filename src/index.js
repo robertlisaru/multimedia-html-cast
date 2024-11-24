@@ -1,7 +1,6 @@
 import './index.css';
 import DirectoryView from './components/directoryView.js';
 import Player from './components/player.js';
-import ResumeDialog from './components/resumeDialog.js';
 
 import { createRoot } from 'react-dom/client';
 import { StrictMode, useEffect, useState } from 'react';
@@ -22,15 +21,6 @@ const App = () => {
 
     const [playingFile, setPlayingFile] = useState(null);
     function closePlayer() { setPlayingFile(null); };
-
-    const [resumeDialogData, setResumeDialogData] = useState(null);
-    function showResumeDialog(filePath, target, resumeTime) {
-        setResumeDialogData({ filePath: filePath, target: target, resumeTime: resumeTime });
-    }
-    function closeResumeDialog() {
-        setResumeDialogData(null);
-    }
-    const dialogOpen = (resumeDialogData && playingFile) && (resumeDialogData.filePath === playingFile.path);
 
     const [progressPerMovie, setProgressPerMovie] = useState(() => {
         const savedMap = localStorage.getItem("PROGRESS_PER_MOVIE");
@@ -62,19 +52,10 @@ const App = () => {
             {playingFile && <Player
                 file={playingFile}
                 closePlayer={closePlayer}
-                showResumeDialog={showResumeDialog}
                 updateProgress={updateProgress}
                 playingFileProgress={progressPerMovie.get(playingFile.path)}
                 mediaDirectory={mediaDirectory}
-            >
-
-                {dialogOpen && <ResumeDialog
-                    target={resumeDialogData.target}
-                    resumeTime={resumeDialogData.resumeTime}
-                    close={closeResumeDialog}
-                ></ResumeDialog>}
-
-            </Player>}
+            />}
 
         </div>);
 };

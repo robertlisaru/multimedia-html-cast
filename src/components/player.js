@@ -1,13 +1,21 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import SrtTrack from "./srtTrack";
 
-const Player = (props) => {
-    const { file, closePlayer, showResumeDialog, updateProgress, playingFileProgress, mediaDirectory } = props;
+const Player = ({ file, closePlayer, updateProgress, playingFileProgress, mediaDirectory }) => {
+    const video = useRef(null);
+
+    const [dialogInfo, setDialogInfo] = useState(null);
+    function showDialog(filePath) {
+        setDialogInfo({ filePath: filePath });
+    }
+    function closeDialog() {
+        setDialogInfo(null);
+    }
+    const dialogOpen = (dialogInfo && file) && (dialogInfo.filePath === file.path);
 
     const normalize = (path) => {
         return path.replace(/[\\/]+/g, '/');
     }
-
     const normalizedPath = normalize(file.path);
 
     const findSubtitles = () => {
@@ -46,6 +54,7 @@ const Player = (props) => {
     return <div className="player">
         <video
             key={normalizedPath}
+            ref={video}
             controls
             autoPlay
             width="100%"
@@ -62,16 +71,13 @@ const Player = (props) => {
                 }
             }}
             onEnded={() => {
-                closePlayer();
+                showDialog(file.path);
             }}
             onLoadedData={(event) => {
-                var resumeTime = null;
-                if (playingFileProgress) {
-                    resumeTime = playingFileProgress.time;
-                }
+                var resumeTime = playingFileProgress?.time;
                 if (resumeTime) {
-                    event.target.pause();
-                    showResumeDialog(file.path, event.target, resumeTime);
+                    event.target.currentTime = resumeTime;
+                    event.target.play();
                 }
             }}
         >
@@ -79,7 +85,20 @@ const Player = (props) => {
             {loadSubtitles()}
 
         </video>
-        {props.children}
+        {dialogOpen && <div
+            className="dialog">
+            <label className="dialogLabel"> Watch again? </label>
+            <button autoFocus
+                onClick={() => {
+                    video.current.currentTime = 0;
+                    video.current.play();
+                    closeDialog();
+                }}>YES</button>
+            <button onClick={() => {
+                closeDialog();
+            }}>NO</button>
+
+        </div >}
     </div >;
 };
 
