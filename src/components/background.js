@@ -6,7 +6,7 @@ const Background = () => {
   useEffect(() => {
     const generateRandomGradient = () => {
       const colors = Array.from({ length: 5 }, () =>
-        `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
+        `rgb(${Math.random() * 64}, ${Math.random() * 64}, ${Math.random() * 64})`
       );
 
       const gradient = `linear-gradient(${Math.random() * 360}deg, ${colors.join(", ")})`;
