@@ -7,8 +7,6 @@ body {
     height: 100%;
     font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('./res/background.jpg');
-    background-size: cover;
 }
 
 .content {

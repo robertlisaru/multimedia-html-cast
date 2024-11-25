@@ -1,6 +1,7 @@
 import './index.css';
 import DirectoryView from './components/directoryView.js';
 import Player from './components/player.js';
+import Background from './components/background.js';
 
 import { createRoot } from 'react-dom/client';
 import { StrictMode, useEffect, useState } from 'react';
@@ -37,27 +38,31 @@ const App = () => {
     }, [progressPerMovie]);
 
     return (
-        <div className="content">
-            <div className="directoryExplorer">
-                <ul>
-                    <DirectoryView
-                        defaultExpanded={true}
-                        directory={mediaDirectory}
-                        playFile={setPlayingFile}
-                        playingFile={playingFile}
-                        progressPerMovie={progressPerMovie}
-                    ></DirectoryView>
-                </ul>
-            </div>
-            {playingFile && <Player
-                file={playingFile}
-                closePlayer={closePlayer}
-                updateProgress={updateProgress}
-                playingFileProgress={progressPerMovie.get(playingFile.path)}
-                mediaDirectory={mediaDirectory}
-            />}
+        <>
+            <Background />
+            <div className="content">
+                <div className="directoryExplorer">
+                    <ul>
+                        <DirectoryView
+                            defaultExpanded={true}
+                            directory={mediaDirectory}
+                            playFile={setPlayingFile}
+                            playingFile={playingFile}
+                            progressPerMovie={progressPerMovie}
+                        ></DirectoryView>
+                    </ul>
+                </div>
+                {playingFile && <Player
+                    file={playingFile}
+                    closePlayer={closePlayer}
+                    updateProgress={updateProgress}
+                    playingFileProgress={progressPerMovie.get(playingFile.path)}
+                    mediaDirectory={mediaDirectory}
+                />}
 
-        </div>);
+            </div>
+        </>
+    );
 };
 
 const root = createRoot(document.getElementById('app'));
